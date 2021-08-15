@@ -1,0 +1,57 @@
+a, p, h1, h2, h3, h4, h5, h6, span, time, textarea, label, input, button, i, ul, li {
+    font-family: 'Roboto', sans-serif;
+    &.white-text {
+        color: #fff !important;
+    }
+    &.grey-text {
+        color: var(--fourth-color);
+    }
+    &.nav-text {
+        color: var(--nav-color);
+    }
+    &.orange-text {
+        color: var(--main-color);
+    }
+
+    &.xxs-text {
+        font-size: 0.75rem;
+    }
+
+    &.xs-text {
+        font-size: 0.815rem;
+    }
+    &.s-text {
+        font-size: 0.875rem;
+    }
+    &.m-text {
+        font-size: 1rem;
+    }
+    &.l-text {
+        font-size: 1.125rem;
+    }
+    &.xl-text {
+        font-size: 1.25rem;
+    }
+    &.xxl-text {
+        font-size: 1.5rem;
+    }
+
+    &.light-text {
+        font-weight: 400;
+    }
+    &.normal-text {
+        font-weight: 500;
+    }
+    &.bold-text {
+        font-weight: 700;
+    }
+
+}
+
+a {
+    text-decoration: none;
+}
+p{
+    line-height: 24px;
+}
+

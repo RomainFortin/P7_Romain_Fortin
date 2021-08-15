@@ -1,0 +1,19 @@
+<div class="settingsItem">
+  <h3 class="white-text l-text bold-text">Désactiver votre compte</h3>
+</div>
+<div class="deactivateForm form">
+  <form [formGroup]="deactivateForm">
+    <div class="formGroup">
+      <label class="white-text s-text light-text" for="userPassword">Entrer votre mot de passe*</label>
+      <input class="xs-text light-text" type="password" id="userPassword" name="userPassword" placeholder="Entrer votre mot de passe"
+        formControlName="userPassword">
+    </div>
+    <div class="formGroup">
+      <label class="white-text s-text light-text" for="userPasswordConfirm">Confirmer votre mot de passe*</label>
+      <input class="xs-text light-text" type="password" id="userPasswordConfirm" name="userPasswordConfirm" placeholder="Confirmer votre mot de passe"
+        formControlName="userPasswordConfirm">
+    </div>
+    <button class="save" [disabled]="deactivateForm.invalid" aria-label="désactiver" [ngClass]="{'btn-danger': !deactivateForm.invalid}" (click)="onDelete()">Désactiver
+    </button>
+  </form>
+</div>

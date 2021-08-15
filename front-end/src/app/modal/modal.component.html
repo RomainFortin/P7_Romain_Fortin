@@ -1,0 +1,37 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title white-text m-text bold-text" id="modal-basic-title">Ajouter un {{ context }}</h4>
+    <button type="button" class="close" aria-label="fermer" (click)="modal.dismiss('Cross click')">
+      <span class="white-text xxl-text light-text" aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="form">
+      <div class="formGroup">
+        <textarea type="text" id="title" formControlName="title" placeholder="Titre"></textarea>
+      </div>
+      <div *ngIf="imagePreview"  class="imagePreviewInner">
+        <img [src]="imagePreview" class="imagePreview">
+        <i class="far fa-times-circle white-text l-text normal-text" (click)="onImageRemoved()"></i>
+      </div>
+      <input type="file" accept="image/.jpeg, .jpg, .png, .gif" #imageInput name="imageFile" (change)="onImageAdded($event)">
+      <input type="file" accept="image/*" #imageInput name="addImage">
+      <button class="addImage white-text xs-text light-text" aria-label="ajout image" (click)="imageInput.click()"><i
+          class="far fa-image s-text light-text"></i>Ajouter une image</button>
+      <p class="text-danger s-text light-text" *ngIf="!imagePreview">{{ message }}</p>
+      <div class="inputInfos">
+        <p class="white-text s-text light-text info-text">JPEG / JPG / PNG / GIF</p>
+        <p class="white-text s-text light-text info-text">*Optionnel</p>
+      </div>
+      <div class="formGroup">
+        <textarea type="text" id="text" formControlName="text" placeholder="Ecrire un texte"></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button [disabled]="form.invalid" type="button" (click)="modal.close(); submitPost()" aria-label="confirmer" *ngIf="this.location.path() === ''">Créer</button>
+    <button [disabled]="form.invalid" type="button" (click)="modal.close(); submitTopic()" aria-label="confirmer" *ngIf="this.location.path().indexOf('/forum') > -1">Créer</button>
+    <button type="button" class="btn-cancel" aria-label="annuler" (click)="modal.close(); onCancel()">Annuler</button>
+  </div>
+</ng-template>
+<button aria-label="ajouter" (click)="open(content)">Ajouter un {{ context }}</button>

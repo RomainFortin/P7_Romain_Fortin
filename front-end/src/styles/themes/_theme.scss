@@ -1,0 +1,23 @@
+:root{
+    --main-color: #f37558;
+    --secondary-color: #313131;
+    --third-color: #585858;
+    --fourth-color: #aeaeae;
+    --nav-color: #a7a7a7;
+    --main-bcg-color: #272727;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+::selection{
+    background: var(--main-color);
+    color: #fff;
+} 
+body {
+    @include displayFlex(column, false, false);
+}
+
+main {
+    background-color: var(--main-bcg-color);
+    --topicInfoWidth: 180px;
+}

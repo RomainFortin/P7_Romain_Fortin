@@ -1,0 +1,52 @@
+.modal-content {
+  background-color: var(--secondary-color) !important;
+  border-radius: 3px !important;
+
+  .modal-header {
+    border-bottom: solid 1px var(--main-bcg-color);
+  }
+
+  .modal-body {
+
+    padding: 0 20px !important;
+
+    .imagePreviewInner {
+      @include displayFlex(row, center, flex-start);
+      width: 100%;
+      margin-top: 30px;
+      img {
+        max-width: 100%;
+        width: auto;
+        height: 200px;
+      }
+      i {
+        cursor: pointer;
+            margin-left: 10px;
+      }
+    }
+
+    button.addImage {
+      margin-top: 30px;
+    }
+
+    .inputInfos {
+      width: 100%;
+      @include displayFlex(row, space-between, center);
+    }
+    p {
+      &:not(.text-danger, .info-text) {
+        margin-top: 30px;
+      }
+      &.text-danger, &.info-text{
+          margin-top: 5px;
+      }
+    }
+  }
+
+  .modal-footer {
+    @include displayFlex(row, space-between, center);
+    flex-wrap: unset;
+    border-top: none;
+    padding: 20px;
+  }
+}

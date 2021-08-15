@@ -1,0 +1,76 @@
+:root{
+    --headerHeight: 85px;
+    --footerHeight: 85px;
+    @media all and (max-width: 768px) {
+        --footerHeight: 120px !important;
+      }
+}
+
+header, footer {
+    padding: 0 370px;
+    @media all and (max-width: 1499px) {
+        padding: 0 200px;
+    }
+    @media all and (max-width: 1140px) {
+        padding: 0 100px;
+    }
+    @media all and (max-width: 768px) {
+        padding: 0 50px;
+    }
+    @media all and (max-width: 576px) {
+        padding:0 20px;
+    }
+}
+
+header {
+    width: 100%;
+    height: var(--headerHeight);
+}
+footer {
+    width: 100%;
+    height: var(--footerHeight);
+}
+main {
+    min-height: calc(100vh -  var(--headerHeight) - var(--footerHeight));
+    &#authPage {
+        min-height: 100vh;
+    }
+}
+
+section {
+    padding: 60px 370px 100px 370px;
+    @media all and (max-width: 1499px) {
+        padding: 60px 200px 100px 200px;
+    }
+    @media all and (max-width: 1140px) {
+        padding: 60px 100px 100px 100px;
+    }
+    @media all and (max-width: 768px) {
+        padding: 60px 50px 100px 50px;
+    }
+    @media all and (max-width: 576px) {
+        padding: 60px 20px 100px 20px;
+    }
+}
+
+.container {
+    flex: 2;
+    max-width: calc(75% - 30px);
+    margin: 0 15px;
+    @media all and (max-width: 768px) {
+        max-width: unset;
+        width: 100%;
+        margin: 0;
+      }
+}
+.leftContent, .rightContent {
+    flex: 1;
+    max-width: calc(25% - 15px);
+    margin: 0 15px;
+    @media all and (max-width: 768px) {
+        max-width: unset;
+        width: 100%;
+        margin: 0 0 30px 0;
+      }
+}
+

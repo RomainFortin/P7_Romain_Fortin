@@ -1,0 +1,41 @@
+<main id="authPage">
+  <section id="signup">
+    <div id="signWrapper">
+      <div class="signPres">
+        <div class="presTop">
+          <img src="assets/logo.svg" alt="">
+          <p class="white-text s-text light-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+        </div>
+        <div class="presBottom">
+          <img src="assets/headway-5QgIuuBxKwM-unsplash.jpg" alt="">
+        </div>
+      </div>
+      <div class="signForm">
+        <h1 class="white-text xxl-text normal-text">Inscription</h1>
+          <form [formGroup]="signForm">
+            <div class="formGroup">
+              <input type="text" id="fullname" formControlName="fullname" placeholder="Nom complet">
+            </div>
+            <div class="formGroup">
+              <input type="email" id="email" formControlName="email" placeholder="Email">
+            </div>
+            <div class="formGroup">
+              <input type="password" id="password" formControlName="password" placeholder="Mot de passe">
+            </div>
+            <div class="formGroup">
+              <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirmer mot de passe">
+            </div>
+            <button class="confirm" [disabled]="signForm.invalid" aria-label="inscription" (click)="onSignup()">Inscription</button>
+          </form>
+          <p *ngIf="errorMsg" class="errorTxt text-danger m-text normal-text">{{errorMsg}}</p>
+        <div class="formBottom">
+          <div>
+            <p class="grey-text s-text light-text">Vous avez déjà un compte ?</p>
+            <a class="orange-text s-text light-text" [routerLink]="['/login']">Se connecter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

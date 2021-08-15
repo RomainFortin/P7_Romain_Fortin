@@ -1,0 +1,141 @@
+header {
+  background-color: var(--secondary-color);
+
+  #headerWrapper {
+    @include displayFlex(row, space-between, center);
+    width: 100%;
+    height: 100%;
+
+    .burgerMenu {
+      display: none;
+
+      @media all and (max-width: 768px) {
+        display: block
+      }
+    }
+
+    a,
+    i,
+    button {
+      text-decoration: none;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &.selectedLink {
+        color: #fff;
+
+        i {
+          color: #fff;
+        }
+      }
+    }
+
+    .logo {
+      @media all and (max-width: 768px) {
+        flex: 1;
+        justify-content: center;
+      }
+      a {
+        img {
+          @media all and (max-width: 768px) {
+            width: 140px;
+          }
+          @media all and (max-width: 375px) {
+            width: 130px;
+          }
+          @media all and (max-width: 375px) {
+            width: 110px;
+          }
+          width: 160px;
+          height: auto;
+        }
+      }
+
+    }
+
+    .links {
+
+      @media all and (max-width: 768px) {
+        display: none;
+      }
+
+      flex: 1;
+      margin-left: 90px;
+
+      a {
+        margin-right: 50px;
+
+        &.selectedLink {
+          border-bottom: solid 2px var(--main-color);
+        }
+      }
+    }
+
+    .dropdownNotif {
+      button {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    .profile {
+      .dropdownProfile {
+        button {
+          p {
+            @media all and (max-width: 768px) {
+              display: none;
+            }
+          }
+
+          i {
+            display: none;
+
+            @media all and (max-width: 768px) {
+              display: block;
+              margin-left: 10px;
+            }
+          }
+          @media all and (max-width: 768px) {
+            &:after {
+              display: none;
+            }
+          }
+          
+        }
+      }
+
+      i {
+        position: relative;
+        cursor: pointer;
+
+        span {
+          position: absolute;
+          top: -30%;
+          right: -50%;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: var(--main-color);
+        }
+      }
+
+      a {
+
+        i {
+          margin-left: 8px;
+        }
+      }
+
+      &>* {
+        margin-left: 20px;
+      }
+    }
+
+    &>* {
+      @include displayFlex(row, false, center);
+    }
+  }
+}

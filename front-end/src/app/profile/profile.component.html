@@ -1,0 +1,19 @@
+<app-header></app-header>
+<main>
+  <div class="profileTop">
+    <div class="title">
+      <h3 class="white-text xxl-text bold-text">{{fullname}}</h3>
+      <p class="job grey-text s-text light-text" *ngIf="this.job">
+        <i class="far fa-user orange-text xxs-text light-text"></i>
+        {{job}}
+      </p>
+    </div>
+  </div>
+  <section id="profile">
+    <nav>
+      <a class="white-text selectedLink s-text light-text" [routerLink]="[ 'settings/profile-settings' ]">Réglages</a>
+    </nav>
+    <router-outlet></router-outlet>
+  </section>
+</main>
+<app-footer></app-footer>

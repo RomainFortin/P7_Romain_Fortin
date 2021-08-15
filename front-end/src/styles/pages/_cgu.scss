@@ -1,0 +1,18 @@
+section#terms {
+    padding-top: 50px;
+    h1 {
+        text-align: center;
+    }
+    .cguArticle {
+        margin-top: 50px;
+        .articleTitle {
+            @include displayFlex(rox, flex-start, baseline);
+        }
+        p, li {
+            margin: 10px 0;
+            &:is(li){
+                margin-left: 20px;
+            }
+        }
+    }
+}

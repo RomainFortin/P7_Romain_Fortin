@@ -1,0 +1,26 @@
+section#forum {
+  @include displayFlex(row, space-between, flex-start);
+  min-width: 100%;
+
+  .rightContent {
+    @media all and (max-width: 768px) {
+      position: absolute;
+      
+        max-width: unset;
+        width: 200px;
+        margin: 0 0 30px 0;
+      }
+      @media all and (max-width: 576px) {
+        right: 20px;
+      }
+  }
+
+  #forumWrapper {
+    @include displayFlex(column, false, flex-start);
+    app-topic {
+      @include displayFlex(column-reverse, false, flex-start);
+      width: 100%;
+    }
+  }
+}
+

@@ -1,0 +1,90 @@
+<app-header></app-header>
+<main>
+  <section id="topic">
+    <div id="topicWrapper" class="container">
+      <div class="topicInner">
+        <div class="topicTop">
+          <h4 class="orange-text s-text light-text">{{topic.author}}</h4>
+        </div>
+        <article class="topicBody">
+          <h2 class="white-text xxl-text bold-text">{{topic.title}}</h2>
+          <time class="grey-text xs-text light-text">{{topic.createdAt}}</time>
+          <span class="divider"></span>
+          <div *ngIf="this.topic.imageUrl" class="cover">
+            <img src="{{topic.imageUrl}}" alt="">
+          </div>
+          <p class="white-text m-text light-text">{{topic.text}}</p>
+        </article>
+        <span class="divider  dividerGrey"></span>
+        <div class="topicForm">
+          <h4 class="white-text m-text bold-text">Réponse</h4>
+          <form [formGroup]="topicForm">
+            <div class="formGroup">
+              <textarea type="text" id="replyText" formControlName="replyText"
+                placeholder="Ecrire une réponse"></textarea>
+            </div>
+            <div *ngIf="imagePreview" class="imagePreviewInner">
+              <img [src]="imagePreview" class="imagePreview">
+              <i class="far fa-times-circle white-text l-text normal-text" (click)="onImageRemoved()"></i>
+            </div>
+            <div class="formBottom">
+              <div class="buttonsWrapper">
+                <input type="file" accept="image/.jpeg, .jpg, .png, .gif" #imageInput name="imageFile"
+                  (change)="onImageAdded($event)">
+                <input type="file" accept="image/*" #imageInput name="addImage">
+                <button class="addImage white-text xs-text light-text" aria-label="ajout image" (click)="imageInput.click()"><i
+                    class="far fa-image s-text light-text"></i>Ajouter une image</button>
+                <div class="inputInfos">
+                  <p class="white-text s-text light-text info-text">JPEG / JPG / PNG / GIF</p>
+                  <p class="white-text s-text light-text info-text">*Optionnel</p>
+                </div>
+              </div>
+              <button [disabled]="topicForm.invalid" aria-label="poster commentaire" (click)="submitComment()">Répondre</button>
+              <p class="text-danger s-text light-text" *ngIf="!imagePreview">{{ message }}</p>
+            </div>
+          </form>
+        </div>
+        <span class="divider dividerGrey"></span>
+        <h5 class="white-text m-text bold-text">Réponses</h5>
+        <div class="commentsWrapper">
+          <div class="replyPost" *ngFor="let comment of comments">
+            <div class="replyTop">
+              <h4 class="white-text s-text bold-text">{{comment.author}}</h4>
+              <div ngbDropdown placement="bottom-right" class="dropdownTopicView d-inline-block" *ngIf="checkRole()">
+                <button class="nav-text s-text light-text" aria-label="suppression" ngbDropdownToggle>
+                  <i class="fas fa-ellipsis-v white-text m-text bold-text"></i>
+                </button>
+                <div ngbDropdownMenu>
+                  <ng-template #content let-modal>
+                    <div class="modal-header">
+                      <h4 class="white-text l-text bold-text modal-title" id="modal-basic-title">Supprimer</h4>
+                      <button type="button" class="close" aria-label="fermer" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="white-text s-text light-text">Etes-vous certain de vouloir <span
+                          class="text-danger s-text bold-text">supprimer</span> ?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn-cancel" annuler (click)="modal.dismiss('cancel click')">Annuler</button>
+                      <button type="button" class=" btn-danger" aria-label="confirmer" (click)="modal.close('Ok click')"><a (click)="deleteComment(comment.uuid)">
+                        Supprimer
+                        </a></button>
+                    </div>
+                  </ng-template>
+                  <button ngbDropdownItem class="white-text s-text light-text" aria-label="supprimer" (click)="open(content)">Supprimer</button>
+                </div>
+              </div>
+            </div>
+            <img src="{{comment.imageUrl}}" alt="">
+            <p class="grey-text s-text light-text">{{comment.text}}
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

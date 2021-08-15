@@ -1,0 +1,35 @@
+<main id="authPage">
+  <section id="login">
+    <div id="loginWrapper">
+      <div class="loginPres">
+        <div class="presTop">
+          <img src="assets/logo.svg" alt="">
+          <p class="white-text s-text light-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+        </div>
+        <div class="presBottom">
+          <img src="assets/headway-5QgIuuBxKwM-unsplash.jpg" alt="">
+        </div>
+      </div>
+      <div class="loginForm">
+          <h1 class="white-text xxl-text normal-text">Connexion</h1>
+          <form [formGroup]="loginForm">
+            <div class="formGroup">
+              <input type="email" id="email" formControlName="email" placeholder="Email">
+            </div>
+            <div class="formGroup">
+              <input type="password" id="password" formControlName="password" placeholder="Mot de passe">
+            </div>
+            <button class="confirm" [disabled]="loginForm.invalid" aria-label="connexion" (click)="onLogin()">Connexion</button>
+          </form>
+          <p *ngIf="errorMsg" class="errorTxt text-danger m-text normal-text">{{errorMsg}}</p>
+        <div class="formBottom">
+          <div>
+            <p class="grey-text s-text light-text">Vous n'avez pas de compte ?</p>
+            <a class="orange-text s-text light-text" [routerLink]="['/signup']">S'inscrire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

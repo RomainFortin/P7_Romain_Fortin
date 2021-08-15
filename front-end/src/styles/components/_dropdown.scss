@@ -1,0 +1,62 @@
+.dropdown {
+    button {
+        @include displayFlex(row, false, center);
+        background-color: unset !important;
+    }
+     div {
+         background-color: var(--secondary-color);
+         box-shadow: 0px 3px 18px 0px rgb(0 0 0 / 18%);
+         padding: 0;
+         margin: 0;
+         a, button {
+             @include displayFlex(row, flex-start, flex-start);
+             padding: 20px;
+             border-bottom: solid 1px var(--main-bcg-color);
+             img {
+                 display: flex;
+                 margin-left: 0 !important;
+                 margin-right: 10px;
+             }
+             div {
+                @include displayFlex(column, false, flex-start);
+             }
+
+             time {
+                flex: 1;
+                text-align: end;
+                 margin-left: 30px;
+                 margin-top: 3px;
+             }
+
+             &:hover:not(.dropdownAll) {
+                 background-color: unset !important;
+             }
+             &:hover > div p:first-child {
+                 color: var(--main-color) !important;
+             }
+             &:hover > div p:last-child {
+                 color: #fff;
+             }
+             &.dropdownAll {
+                @include displayFlex(row, center, center);
+                 background-color: var(--main-color);
+                 border: none;
+             }
+         }
+     }
+}
+
+.dropdownProfile, .dropdownPost, .dropdownTopic, .dropdownTopicView  {
+    .dropdown-item {
+        align-items: center;
+        border-left: solid 2px transparent;
+        height: 50px;
+        border-radius: 0;
+        padding: 0 0 0 20px;
+        transition: 0.3s;
+        &:hover {
+            color: var(--main-color) !important;
+            border-left-color: solid 2px var(--main-color);
+        }
+    }
+}

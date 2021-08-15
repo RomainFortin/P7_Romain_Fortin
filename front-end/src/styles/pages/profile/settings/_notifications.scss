@@ -1,0 +1,31 @@
+.notifItems {
+    border-bottom: solid 1px var(--main-bcg-color);
+    background-color: var(--secondary-color);
+    a {
+        @include displayFlex(row, flex-start, flex-start);
+        padding: 20px;
+        img {
+           height: 50px;
+           width: auto;
+            margin-left: 0 !important;
+            margin-right: 10px;
+        }
+        div {
+           @include displayFlex(column, false, flex-start);
+           p {
+               transition: 0.3s;
+           }
+        }
+
+        time {
+           flex: 1;
+           text-align: end;
+            margin-left: 30px;
+            margin-top: 3px;
+        }
+
+        &:hover > div p:first-child {
+            color: var(--main-color) !important;
+        }
+    }
+}

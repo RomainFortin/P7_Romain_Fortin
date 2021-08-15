@@ -1,0 +1,60 @@
+<header>
+  <div id="headerWrapper">
+    <div class="burgerMenu">
+      <i class="fas fa-bars white-text xl-text bold-text" (click)="asideToggle()"></i>
+    </div>
+    <div class="logo">
+      <a class="nav-text" [routerLink]="[ '/' ]">
+        <img src="assets/logo.svg" alt="Logo" title="Home"></a>
+    </div>
+    <div class="links">
+      <a [routerLink]="[ '/' ]" class="homeLink nav-text s-text light-text"
+        [ngClass]="{'selectedLink white-text': isSelected() === 0}">Accueil</a>
+      <a [routerLink]="[ '/forum' ]" class="forumLink nav-text s-text light-text"
+        [ngClass]="{'selectedLink white-text': isSelected() === 1}">Forum</a>
+    </div>
+    <div class="profile">
+      <div ngbDropdown placement="bottom-right" class="dropdownProfile d-inline-block">
+        <button class="nav-text s-text light-text" aria-label="profil" ngbDropdownToggle [ngClass]="{'white-text': isSelected() === 2}">
+          <p>{{fullname}}</p>
+          <i class="fas fa-user userIcon"></i>
+        </button>
+        <div ngbDropdownMenu>
+          <a class="white-text s-text light-text" [routerLink]="[ '/profile/settings/profile-settings' ]" ngbDropdownItem>
+            Réglages
+          </a>
+
+          <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="white-text l-text bold-text modal-title" id="modal-basic-title">Déconnexion</h4>
+              <button type="button" class="close" aria-label="fermer" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p class="white-text s-text light-text">Etes-vous certain de vouloir vous <span
+                  class="text-danger s-text bold-text">déconnecter</span> ?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" aria-label="annuler" class="btn-cancel" (click)="modal.dismiss('cancel click')">Annuler</button>
+              <button type="button" aria-label="confirmer" class=" btn-danger" (click)="modal.close('Ok click')"><a (click)="onLogout()">
+                  Déconnexion
+                </a></button>
+            </div>
+          </ng-template>
+          <button ngbDropdownItem class="white-text s-text light-text" aria-label="déconnexion" (click)="open(content)">Déconnexion</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<aside id="menu" [ngClass]="{'asideActive': isAside === true}">
+  <h3 class="white-text xl-text bold-text">Menu</h3>
+  <nav>
+      <a [routerLink]="[ '/' ]" class="homeLink nav-text m-text light-text"
+      [ngClass]="{'selectedLink white-text': isSelected() === 0}">Accueil</a>
+    <a [routerLink]="[ '/forum' ]" class="forumLink nav-text m-text light-text"
+      [ngClass]="{'selectedLink white-text': isSelected() === 1}">Forum</a>
+  </nav>
+</aside>

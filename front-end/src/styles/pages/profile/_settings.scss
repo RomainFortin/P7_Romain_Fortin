@@ -1,0 +1,40 @@
+div#settings {
+  @include displayFlex(row, false, flex-start);
+  margin-top: 30px;
+
+  @media all and (max-width: 768px) {
+    @include displayFlex(column, space-around, flex-start);
+  }
+
+  .settingsItem {
+    border-bottom: solid 1px var(--main-bcg-color);
+    background-color: var(--secondary-color);
+
+    h3 {
+      padding: 20px;
+    }
+
+    a {
+      @include displayFlex(row, false, center);
+      padding: 20px;
+      border-right: solid 2px transparent;
+      transition: 0.3s;
+
+      &:hover {
+        color: var(--main-color) !important;
+        border-right-color: solid 2px var(--main-color);
+      }
+
+      &.selectedLink {
+        border-right-color: solid 2px var(--main-color);
+      }
+    }
+
+  }
+
+  .form {
+    background-color: var(--secondary-color);
+    padding: 0 30px 30px 30px;
+    margin-bottom: 30px;
+  }
+}

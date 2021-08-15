@@ -1,0 +1,27 @@
+section#home {
+  @include displayFlex(row, space-between, flex-start);
+  position: relative;
+
+  #homeWrapper {
+    @include displayFlex(column, false, flex-start);
+
+    app-post {
+      @include displayFlex(column-reverse, false, flex-start);
+      width: 100%;
+    }
+  }
+
+  .rightContent {
+    @media all and (max-width: 768px) {
+      position: absolute;
+      right: 50px;
+      max-width: unset;
+      width: 200px;
+      margin: 0 0 30px 0;
+    }
+    @media all and (max-width: 576px) {
+      right: 20px;
+    }
+  }
+}
+

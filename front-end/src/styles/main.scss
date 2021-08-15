@@ -1,0 +1,40 @@
+@import 'utils/mixins';
+
+@import 'base/reset';
+@import 'base/typography';
+
+@import 'layout/navigation';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/forms';
+@import 'layout/grid';
+
+@import 'components/buttons';
+@import 'components/dropdown';
+@import 'components/modal';
+@import 'components/post';
+@import 'components/topic';
+
+@import 'pages/404';
+@import 'pages/forum';
+@import 'pages/forum/topicView';
+@import 'pages/home';
+@import 'pages/auth';
+@import 'pages/profile';
+
+@import 'pages/profile/settings';
+@import 'pages/profile/settings/notifications';
+@import 'pages/cgu';
+@import 'pages/about';
+
+@import 'themes/theme';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/utilities';
+@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/transitions';

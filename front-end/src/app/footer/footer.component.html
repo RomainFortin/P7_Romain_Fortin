@@ -1,0 +1,13 @@
+<footer  *ngIf="isLocation() === true">
+    <div id="footerWrapper">
+        <div class="copyright">
+            <img src="assets/logo2.svg" alt="">
+            <p class="nav-text s-text light-text">© 2021 <span class="orange-text">Groupomania</span>. Tous droits réservés</p>
+        </div>
+        <div class="legals">
+            <a class="nav-text s-text light-text" [routerLink]="[ '/terms']">CGU</a>
+            <a class="nav-text s-text light-text" [routerLink]="[ '/about']">A propos</a>
+            <a class="nav-text s-text light-text" href="mailto:support@groupomania.fr">Nous contacter</a>
+        </div>
+    </div>
+</footer>

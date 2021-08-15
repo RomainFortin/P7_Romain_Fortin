@@ -1,0 +1,19 @@
+<div class="settingsItem">
+    <h3 class="white-text l-text bold-text">Profil</h3>
+  </div>
+  <div class="profileForm form">
+    <form [formGroup]="profileForm">
+      <div class="formGroup">
+        <label class="white-text s-text light-text" for="fullname">Nom complet</label>
+        <input class="xs-text light-text" type="text" id="fullname" name="fullname" placeholder="Nouveau nom"
+          formControlName="fullname">
+      </div>
+      <div class="formGroup">
+        <label class="white-text s-text light-text" for="job">Job</label>
+        <input class="xs-text light-text" type="text" id="job" name="job" placeholder="Nouveau job"
+          formControlName="job">
+      </div>
+      <button type="button" class="save" aria-label="enregistrer" [disabled]="profileForm.invalid" (click)="onChanges()">Enregistrer
+      </button>
+    </form>
+  </div>

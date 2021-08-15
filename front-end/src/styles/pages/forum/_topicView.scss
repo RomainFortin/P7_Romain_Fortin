@@ -1,0 +1,155 @@
+section#topic {
+  @include displayFlex(row, space-between, flex-start);
+  min-width: 100%;
+
+  #topicWrapper {
+    border-radius: 3px;
+    background-color: var(--secondary-color);
+
+    .topicInner {
+      @include displayFlex(column, flex-start, flex-start);
+
+      span.divider {
+        width: 100%;
+        height: 1px;
+        background-color: var(--main-bcg-color);
+        margin: 10px 0;
+        &.dividerGrey {
+          background-color: var(--third-color);
+          margin: 0;
+        }
+      }
+
+      .topicTop {
+        @include displayFlex(row, space-between, center);
+        width: 100%;
+        padding: 20px 20px 10px 20px;
+
+      }
+
+      article.topicBody {
+        @include displayFlex(column, false, flex-start);
+        width: 100%;
+        padding: 0 20px;
+
+        h2 {
+          margin-bottom: 10px;
+        }
+
+        .cover {
+          @include displayFlex(false, flex-start, center);
+          overflow: hidden;
+
+          img {
+            height: auto;
+            width: 50%;
+          }
+        }
+
+        p {
+          margin: 10px 0 20px 0;
+          line-height: 24px;
+        }
+      }
+
+      .topicForm {
+        @include displayFlex(column, false, flex-start);
+        width: 100%;
+        padding: 20px 20px 10px 20px;
+
+        .imagePreviewInner {
+          @include displayFlex(row, space-between, flex-start);
+          position: relative;
+          margin-top: 20px;
+
+          img {
+            max-width: 100%;
+            height: 200px;
+            width: auto;
+          }
+
+          i {
+            cursor: pointer;
+            margin-left: 10px;
+          }
+        }
+
+        .formBottom {
+          @include displayFlex(row, space-between, flex-start);
+          height: 80px;
+          width: 100%;
+          margin-top: 20px;
+
+          .buttonsWrapper {
+            @include displayFlex(column, flex-start, flex-start);
+            padding-right: 20px;
+            width: 100%;
+          }
+
+          button {
+            &:not(.addImage) {
+              width: 15%;
+            }
+          }
+
+          .inputInfos {
+            width: 100%;
+            @include displayFlex(row, space-between, center);
+          }
+
+          p {
+            margin-top: 5px;
+          }
+        }
+      }
+      
+        h5 {
+          padding: 20px;
+        }
+        .commentsWrapper {
+          @include displayFlex(column-reverse, false, flex-start);
+          width: 100%;
+        .replyPost {
+          padding: 20px;
+          width: 100%;
+          border-bottom: solid 1px var(--main-bcg-color);
+          &:last-child{
+            border-left: solid 3px var(--main-color);
+          }
+  
+          .replyTop {
+            @include displayFlex(row, space-between, center);
+            width: 100%;
+            .dropdownTopicView {
+              width: 30px;
+              z-index: 50;
+        
+              button {
+                @include displayFlex(row, center, center);
+        
+                &.dropdown-item {
+                  justify-content: flex-start;
+                }
+        
+                &:after {
+                  display: none;
+                }
+              }
+            }
+          }
+  
+          img {
+            height: 100px;
+            width: auto;
+          }
+  
+          p {
+            margin-top: 10px;
+            line-height: 24px;
+          }
+          
+        }
+      }
+    }
+  }
+}

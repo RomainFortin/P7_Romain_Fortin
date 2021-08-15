@@ -1,0 +1,77 @@
+.topicWrapper {
+  @include displayFlex(row, space-between, center);
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--secondary-color);
+  padding: 20px 10px 20px 20px;
+
+  &:last-child {
+    border-left: solid 3px var(--main-color);
+  }
+
+  .topicItem {
+    @include displayFlex(row, space-between, center);
+    background-color: var(--secondary-color);
+    border: solid 1px var(--third-color);
+    width: 100%;
+    border-radius: 5px;
+
+    @media all and (max-width: 576px) {
+      @include displayFlex(column, space-between, flex-start);
+    }
+
+    .topicSummary {
+      @include displayFlex(row, flex-start, center);
+      flex: 1;
+      padding: 10px;
+      width: calc(100% - var(--topicInfoWidth));
+
+      h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .topicInfo {
+      @include displayFlex(row, space-between, center);
+      padding: 10px;
+      height: 100%;
+
+      span,
+      p {
+        @include displayFlex(false, center, center);
+        height: 100%;
+        border-left: solid 1px var(--third-color);
+        white-space: nowrap;
+        padding: 0 10px;
+        &:is(span){
+          @media all and (max-width: 576px) {
+            border-left: none;
+            padding: 0 10px 0 0;
+          }
+        }
+      }
+    }
+
+  }
+
+  .dropdownTopic {
+    height: 100%;
+    width: 30px;
+    z-index: 50;
+
+    button {
+      @include displayFlex(row, center, center);
+
+      &.dropdown-item {
+        justify-content: flex-start;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
